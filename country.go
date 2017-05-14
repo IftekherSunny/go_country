@@ -12,7 +12,7 @@ type Country struct {
 	data map[string]interface{}
 }
 
-// Create a new instance of country-for-golang struct
+// Create a new instance of country struct
 func New() *Country {
 	instance := &Country{}
 
@@ -44,23 +44,23 @@ func (country *Country) All() map[string]interface{} {
 	return country.readCountriesDataFile().data
 }
 
-// Get a single country-for-golang by the given country-for-golang name
-func (country *Country) getCountry(name string) (interface{}, error) {
-	if details := country.readCountriesDataFile().data[name]; details == nil {
-		return nil, NewValidationError(name)
+// Get a single country by the country ISO 3166-1 Alpha-2 code
+func (country *Country) getCountry(code string) (interface{}, error) {
+	if details := country.readCountriesDataFile().data[code]; details == nil {
+		return nil, NewValidationError(code)
 	} else {
 		return details, nil
 	}
 }
 
-// Get a country-for-golang name and dialing code by the given country-for-golang name
-func (country *Country) Get(name interface{}) (interface{}, error) {
+// Get a country name and dialing code by the country ISO 3166-1 Alpha-2 code
+func (country *Country) Get(code interface{}) (interface{}, error) {
 
-	switch name.(type) {
+	switch code.(type) {
 	case string:
-		return country.getCountry(name.(string))
+		return country.getCountry(code.(string))
 	case []string:
-		data, err := country.gets(name.([]string))
+		data, err := country.gets(code.([]string))
 
 		return data, err
 	default:
@@ -68,9 +68,9 @@ func (country *Country) Get(name interface{}) (interface{}, error) {
 	}
 }
 
-// Get a country-for-golang name by the given country-for-golang name
-func (country *Country) GetName(name string) (interface{}, error) {
-	data, err := country.getCountry(name)
+// Get a country name by the country ISO 3166-1 Alpha-2 code
+func (country *Country) GetName(code string) (interface{}, error) {
+	data, err := country.getCountry(code)
 
 	if err != nil {
 		return nil, err
@@ -81,9 +81,9 @@ func (country *Country) GetName(name string) (interface{}, error) {
 	return details["name"], nil
 }
 
-// Get a country-for-golang dialing code by the given country-for-golang name
-func (country *Country) GetDialingCode(name string) (interface{}, error) {
-	data, err := country.getCountry(name)
+// Get a country dialing code by the country ISO 3166-1 Alpha-2 code
+func (country *Country) GetDialingCode(code string) (interface{}, error) {
+	data, err := country.getCountry(code)
 
 	if err != nil {
 		return nil, err
@@ -94,17 +94,17 @@ func (country *Country) GetDialingCode(name string) (interface{}, error) {
 	return details["code"], nil
 }
 
-// Get countries name and dialing code by the given countries name
-func (country *Country) gets(names []string) (map[string]interface{}, error) {
+// Get countries name and dialing code by the country ISO 3166-1 Alpha-2 codes
+func (country *Country) gets(codes []string) (map[string]interface{}, error) {
 	countries := make(map[string]interface{})
 
-	for _, name := range names {
-		details, err := country.getCountry(name)
+	for _, code := range codes {
+		details, err := country.getCountry(code)
 
 		if err != nil {
 			return nil, err
 		} else {
-			countries[name] = details
+			countries[code] = details
 		}
 	}
 

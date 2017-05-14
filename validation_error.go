@@ -11,9 +11,9 @@ func (v ValidationError) Error() string {
 }
 
 // create a new validation error class
-func NewValidationError(countryName string) error {
+func NewValidationError(code string) error {
 	ve := &ValidationError{}
-	ve.message = "Country name [ " + countryName + " ] doesn't exist"
+	ve.message = "The country ISO 3166-1 Alpha-2 code [ " + code + " ] does not exists."
 
 	return ve
 }
