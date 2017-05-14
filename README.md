@@ -31,7 +31,7 @@ countryDetails, _ := country.Get("BD")
 ```go
 country := country_for_golang.NewCountry()
 
-countriesDetails, _ := country.Get([]string{"BD", "US"})
+countries, _ := country.Get([]string{"BD", "US"})
 ```
 
 ##### Get a country name
@@ -39,7 +39,7 @@ countriesDetails, _ := country.Get([]string{"BD", "US"})
 ```go
 country := country_for_golang.NewCountry()
 
-countryDetails, _ := country.GetName("BD")
+name, _ := country.GetName("BD")
 ```
 
 ##### Get a country dialing code
@@ -47,7 +47,7 @@ countryDetails, _ := country.GetName("BD")
 ```go
 country := country_for_golang.NewCountry()
 
-countryDetails, _ := country.GetDialingCode("BD")
+dialingCode, _ := country.GetDialingCode("BD")
 ```
 
 ### Test
