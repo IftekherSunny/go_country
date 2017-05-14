@@ -1,4 +1,4 @@
-package country_for_golang
+package go_country
 
 // validation error struct
 type ValidationError struct {

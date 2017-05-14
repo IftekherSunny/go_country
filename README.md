@@ -13,7 +13,7 @@ Country is the package that helps you to get country name and dialing code by th
 ##### Get all countries name and dialing code
 
 ```go
-country := country_for_golang.NewCountry()
+country := go_country.NewCountry()
 
 countries := country.All()
 ```
@@ -21,7 +21,7 @@ countries := country.All()
 ##### Get a country name and dialing code
 
 ```go
-country := country_for_golang.NewCountry()
+country := go_country.NewCountry()
 
 countryDetails, _ := country.Get("BD")
 ```
@@ -29,7 +29,7 @@ countryDetails, _ := country.Get("BD")
 ##### Get multiple countries name and dialing code
 
 ```go
-country := country_for_golang.NewCountry()
+country := go_country.NewCountry()
 
 countries, _ := country.Get([]string{"BD", "US"})
 ```
@@ -37,7 +37,7 @@ countries, _ := country.Get([]string{"BD", "US"})
 ##### Get a country name
 
 ```go
-country := country_for_golang.NewCountry()
+country := go_country.NewCountry()
 
 name, _ := country.GetName("BD")
 ```
@@ -45,7 +45,7 @@ name, _ := country.GetName("BD")
 ##### Get a country dialing code
 
 ```go
-country := country_for_golang.NewCountry()
+country := go_country.NewCountry()
 
 dialingCode, _ := country.GetDialingCode("BD")
 ```
