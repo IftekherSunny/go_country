@@ -5,7 +5,7 @@ Country is the package that helps you to get country name and dialing code by th
 ### Installation Process
 
 ```
- go get github.com/IftekherSunny/country-for-golang
+ go get github.com/IftekherSunny/go_country
 ```
 
 ### Basic Uses
