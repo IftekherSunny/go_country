@@ -13,7 +13,7 @@ type Country struct {
 }
 
 // Create a new instance of country struct
-func New() *Country {
+func NewCountry() *Country {
 	instance := &Country{}
 
 	instance = instance.readCountriesDataFile()
