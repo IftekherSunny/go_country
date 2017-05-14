@@ -23,7 +23,6 @@ func NewCountry() *Country {
 
 // Read countries data file
 func (country *Country) readCountriesDataFile() *Country {
-
 	if len(country.data) > 0 {
 		return country
 	}
@@ -55,7 +54,6 @@ func (country *Country) getCountry(code string) (interface{}, error) {
 
 // Get a country name and dialing code by the country ISO 3166-1 Alpha-2 code
 func (country *Country) Get(code interface{}) (interface{}, error) {
-
 	switch code.(type) {
 	case string:
 		return country.getCountry(code.(string))
