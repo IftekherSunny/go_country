@@ -1,4 +1,4 @@
-package go_country
+package country
 
 import (
 	"encoding/json"
@@ -12,7 +12,7 @@ type Country struct {
 	data map[string]interface{}
 }
 
-// Create a new instance of country struct
+// NewCountry will create a new instance of country struct
 func NewCountry() *Country {
 	instance := &Country{}
 
@@ -38,18 +38,20 @@ func (country *Country) readCountriesDataFile() *Country {
 	return country
 }
 
-// Get all countries name and dialing code
+// All will return all countries name and dialing code
 func (country *Country) All() map[string]interface{} {
 	return country.readCountriesDataFile().data
 }
 
 // Get a single country by the country ISO 3166-1 Alpha-2 code
 func (country *Country) getCountry(code string) (interface{}, error) {
-	if details := country.readCountriesDataFile().data[code]; details == nil {
+	details := country.readCountriesDataFile().data[code]
+
+	if details == nil {
 		return nil, NewValidationError(code)
-	} else {
-		return details, nil
 	}
+
+	return details, nil
 }
 
 // Get a country name and dialing code by the country ISO 3166-1 Alpha-2 code
@@ -66,7 +68,7 @@ func (country *Country) Get(code interface{}) (interface{}, error) {
 	}
 }
 
-// Get a country name by the country ISO 3166-1 Alpha-2 code
+// GetName will return a country name by the country ISO 3166-1 Alpha-2 code
 func (country *Country) GetName(code string) (interface{}, error) {
 	data, err := country.getCountry(code)
 
@@ -79,7 +81,7 @@ func (country *Country) GetName(code string) (interface{}, error) {
 	return details["name"], nil
 }
 
-// Get a country dialing code by the country ISO 3166-1 Alpha-2 code
+// GetDialingCode will return a country dialing code by the country ISO 3166-1 Alpha-2 code
 func (country *Country) GetDialingCode(code string) (interface{}, error) {
 	data, err := country.getCountry(code)
 
@@ -101,9 +103,9 @@ func (country *Country) gets(codes []string) (map[string]interface{}, error) {
 
 		if err != nil {
 			return nil, err
-		} else {
-			countries[code] = details
 		}
+
+		countries[code] = details
 	}
 
 	return countries, nil

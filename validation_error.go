@@ -1,6 +1,6 @@
-package go_country
+package country
 
-// validation error struct
+// ValidationError struct
 type ValidationError struct {
 	message string
 }
@@ -10,7 +10,7 @@ func (v ValidationError) Error() string {
 	return v.message
 }
 
-// create a new validation error class
+// NewValidationError will create a new validation error class
 func NewValidationError(code string) error {
 	ve := &ValidationError{}
 	ve.message = "The country ISO 3166-1 Alpha-2 code [ " + code + " ] does not exists."

@@ -1,4 +1,4 @@
-package go_country
+package country
 
 import "testing"
 
