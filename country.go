@@ -3,8 +3,7 @@ package country
 import (
 	"encoding/json"
 	"io/ioutil"
-	"path"
-	"runtime"
+	"path/filepath"
 )
 
 // Country struct
@@ -27,9 +26,7 @@ func (country *Country) readCountriesDataFile() *Country {
 		return country
 	}
 
-	_, filename, _, _ := runtime.Caller(0)
-
-	dataPath := path.Join(path.Dir(filename), "data/countries.json")
+	dataPath, _ := filepath.Abs("./data/countries.json")
 
 	file, _ := ioutil.ReadFile(dataPath)
 
