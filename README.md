@@ -1,6 +1,11 @@
-[![Build Status](https://travis-ci.org/IftekherSunny/go_country.svg?branch=master)](https://travis-ci.org/IftekherSunny/go_country)
-
 ### Country
+
+[![Project status](https://img.shields.io/badge/release-v1.0-green.svg)](https://github.com/IftekherSunny/go_country/releases)
+[![Build Status](https://travis-ci.org/IftekherSunny/go_country.svg?branch=master)](https://travis-ci.org/IftekherSunny/go_country)
+[![cover.run go](https://cover.run/go/github.com/IftekherSunny/go_country.svg)](https://cover.run/go/github.com/IftekherSunny/go_country)
+[![Go Report Card](https://goreportcard.com/badge/github.com/IftekherSunny/go_country)](https://goreportcard.com/report/github.com/IftekherSunny/go_country)
+[![GoDoc](https://godoc.org/github.com/IftekherSunny/go_country?status.svg)](https://godoc.org/github.com/IftekherSunny/go_country)
+[![License](https://img.shields.io/dub/l/vibe-d.svg)](https://github.com/IftekherSunny/go_country/blob/master/LICENSE)
 
 Country is the package that helps you to get country name and dialing code by the country ISO 3166-1 Alpha-2 code.
 
